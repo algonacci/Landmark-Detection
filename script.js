@@ -1,12 +1,10 @@
-console.log("Hello World!");
-
 function testingApi() {
-  const baseUrl = 'https://travens-api.my.id/'
-  fetch(baseUrl, {
-    mode: 'cors',
-    headers: {
-        'Access-Control-Allow-Origin':'*'
-      }
-  });
+  console.log("Hello World!");
   console.log("--- Testing ---");
+  loadFile();
 }
+
+var loadFile = function (event) {
+  var image = document.getElementById("output");
+  image.src = URL.createObjectURL(event.target.files[0]);
+};
