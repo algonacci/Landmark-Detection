@@ -1,7 +1,11 @@
 function testingApi() {
-  console.log("Hello World!");
-  console.log("--- Testing ---");
-  loadFile();
+  const url = "https://cors-anywhere.herokuapp.com/travens-api.my.id/";
+
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", url);
+  xmlHttp.send(null);
+  console.log('Tested!')
+  return xmlHttp.responseText;
 }
 
 var loadFile = function (event) {
