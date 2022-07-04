@@ -1,14 +1,12 @@
-function testingApi() {
-  const url = "https://cors-anywhere.herokuapp.com/travens-api.my.id/";
-
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", url);
-  xmlHttp.send(null);
-  console.log('Tested!')
-  return xmlHttp.responseText;
+function httpPostImage(url, data, callback) {
+    url = 'http://travens-api.my.id/predict';
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", url, true);
+    xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            callback(xmlHttp.responseText);
+        }
+    }
+    xmlHttp.send(data);
 }
-
-var loadFile = function (event) {
-  var image = document.getElementById("output");
-  image.src = URL.createObjectURL(event.target.files[0]);
-};
